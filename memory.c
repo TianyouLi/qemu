@@ -917,6 +917,7 @@ void memory_region_init(MemoryRegion *mr,
         char *escaped_name = memory_region_escape_name(name);
         char *name_array = g_strdup_printf("%s[*]", escaped_name);
 
+        printf("{\"memory_region\" : { \"name\" : \"%s\", \"length\" : %" PRId64 " }}\n", name_array, size);
         if (!owner) {
             owner = container_get(qdev_get_machine(), "/unattached");
         }
